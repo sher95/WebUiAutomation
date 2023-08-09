@@ -20,13 +20,13 @@ public class LoginStep {
     private WebDriverWait wait;
 
     @Given("the user is on login page")
-    public void iAmOnTheHomePage() {
+    public void iAmOnTheLoginPage() {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
     @When("the user enters valid credentials")
-    public void iEnterUsernameAndPassword() throws IOException {
+    public void iEnterValidCredentials() throws IOException {
         homePage.enterUsername(wait);
         homePage.enterPassword(wait);
     }
@@ -38,8 +38,61 @@ public class LoginStep {
 
     @Then("the user should be logged in successfully")
     public void iShouldSeeTheDashboard() {
-        // Add assertion for dashboard verification
         Assert.assertTrue(dashboardPage.isDashboardDisplayed(wait));
+    }
+
+    @When("the user enters incorrect password")
+    public void iEnterIncorrectPassword() throws IOException {
+        homePage.enterUsername(wait);
+        homePage.enterIncorrectPassword(wait);
+    }
+
+    @When("enters empty username")
+    public void iEnterEmptyUsername() throws IOException {
+        homePage.enterEmptyUsername(wait);
+        homePage.enterPassword(wait);
+    }
+
+    @When("enters empty password")
+    public void iEnterEmptyPassword() throws IOException {
+        homePage.enterUsername(wait);
+        homePage.enterEmptyPassword(wait);
+    }
+
+    @Then("an error message should be displayed")
+    public void anErrorMessageShouldBeDisplayed() throws InterruptedException {
+        String actualErrorMessage = homePage.getErrorMessageText(wait);
+        String expectedErrorMessage = "Invalid credentials"; // Replace with your expected error message
+        Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
+    }
+
+    @Then("an password required message should be displayed")
+    public void anPasswordRequiredMessageShouldBeDisplayed() {
+        String expectedErrorMessage = "Required"; // Replace with your expected error message
+        String actualErrorMessage = homePage.getErrorRequiredPass(wait);
+        Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
+    }
+
+    @Then("an user required message should be displayed")
+    public void anUserRequiredMessageShouldBeDisplayed() {
+        String expectedErrorMessage = "Required"; // Replace with your expected error message
+        String actualErrorMessage = homePage.getErrorRequiredUser(wait);
+        Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
+    }
+
+    @Then("the username input field should be displayed")
+    public void theUsernameInputFieldShouldBeDisplayed() {
+        Assert.assertTrue(homePage.isUsernameInputDisplayed(wait));
+    }
+
+    @Then("the password input field should be displayed")
+    public void thePasswordInputFieldShouldBeDisplayed() {
+        Assert.assertTrue(homePage.isPasswordInputDisplayed(wait));
+    }
+
+    @Then("the login button should be displayed")
+    public void theLoginButtonShouldBeDisplayed() {
+        Assert.assertTrue(homePage.isLoginButtonDisplayed(wait));
     }
 
     @After
