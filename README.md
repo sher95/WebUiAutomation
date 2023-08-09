@@ -14,9 +14,8 @@ Note: Make sure you already downloaded Java version 11 or high and Maven
 
 <h4>First Method run from IDE:</h4> 
 Open src/test/java/testRunners/TestRunner.java
-\
+
 Click on play icon on left side of code, and dropdown menu click Run 'TestRunner'
-\
 <h4>Second method, run from Command line:</h4>
 1.Open testng.xml file and add project path in test > name
 \
