@@ -18,7 +18,7 @@ Open src/test/java/testRunners/TestRunner.java
 Click on play icon on left side of code, and dropdown menu click Run 'TestRunner'
 <h4>Second method, run from Command line:</h4>
 1.Open testng.xml file and add project path in test > name
-\
+
 2.Open terminal in project path and run this command: mvn test
-\
+
 Note: Make sure Java and maven path seted up in system path
