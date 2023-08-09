@@ -5,6 +5,7 @@ Used: Java jdk-11, Maven, Selenium, Cucumber, TestNG.
 How to download and run this automation:
 \
 Note: Make sure you already downloaded Java version 11 or high and Maven
+Note: Make sure Java and maven path seted up in system path
 
 1.Clone repository link and open Intellij Idea
 \
@@ -20,5 +21,3 @@ Click on play icon on left side of code, and dropdown menu click Run 'TestRunner
 1.Open testng.xml file and add project path in test > name
 
 2.Open terminal in project path and run this command: mvn test
-
-Note: Make sure Java and maven path seted up in system path
