@@ -10,23 +10,27 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class HomePage extends BasePage {
-    private WebDriver driver;
-
+    @SuppressWarnings("unused")
     @FindBy(name = "username")
     private WebElement usernameInput;
 
+    @SuppressWarnings("unused")
     @FindBy(name = "password")
     private WebElement passwordInput;
 
+    @SuppressWarnings("unused")
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button")
     private WebElement loginButton;
 
+    @SuppressWarnings("unused")
     @FindBy(xpath = "/html/body/div/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]/div[1]/p")
     private WebElement errorMessage;
 
+    @SuppressWarnings("unused")
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/span")
     private WebElement errorRequiredUser;
 
+    @SuppressWarnings("unused")
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/span")
     private WebElement errorRequiredPass;
 
